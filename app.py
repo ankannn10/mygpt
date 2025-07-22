@@ -32,9 +32,20 @@ class ChatState(TypedDict):
     messages: List[BaseMessage]
     documents: Optional[List[str]]  # Store document names
     vectorstore: Optional[FAISS]    # Store vector store for RAG
+    
+GOOGLE_API_KEY = st.secrets["auth_key"]
 
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.7)
-embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+llm = ChatGoogleGenerativeAI(
+    model="gemini-1.5-flash",
+    temperature=0.7,
+    google_api_key=GOOGLE_API_KEY
+)
+
+embeddings = GoogleGenerativeAIEmbeddings(
+    model="models/embedding-001",
+    google_api_key=GOOGLE_API_KEY
+)
+
 MAX_HISTORY = 8  # 4 rounds (user-AI-user-AI...)
 
 def prune_history(history):
