@@ -8,3 +8,4 @@ langchain-community>=0.0.20
 langgraph>=0.0.30
 faiss-cpu>=1.7.0
 nest_asyncio>=1.5.8
+pypdf>=3.0.0
