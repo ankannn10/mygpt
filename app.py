@@ -21,7 +21,7 @@ import nest_asyncio
 nest_asyncio.apply()
 
 headers ={
-    "authorization": st.secrets["auth_token"],
+    "authorization": st.secrets["auth_key"],
     "content-type": "application/json"
 }
 
